@@ -2,9 +2,9 @@
             section .text
 
 _fact:      
-            cmp rdi,0
-            je case0
             mov rax,rdi
+            cmp rax,0
+            je end
             mov rbx,rdi
             sub rbx,1
 
@@ -12,8 +12,6 @@ looop:      cmp rbx,0
             je end
             mul rbx
             dec rbx
+            jmp looop
 
 end:        ret
-
-case0:      mov rax,1
-            ret
